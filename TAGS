@@ -1,0 +1,171 @@
+
+tests/test1.nim,0
+
+src/scenery.nim,466
+  SceneState* = enumSceneState5,24
+template Scenery* (): auto = sceScenery18,287
+proc newScene* (ev: proc(ev: SceneState)): Scene=newScene20,321
+proc push* (sc: SceneManager, scene: Scene): Scene {.discardable.}=push23,400
+proc pop* (sc: SceneManager): Scene {.discardable.}=pop29,542
+proc goto* (sc: SceneManager, scene: Scene): Scene {.discardable.}=goto36,789
+proc update* (sc: SceneManager)=update40,895
+proc draw* (sc: SceneManager)=draw44,1028
+
+src/maths.nim,2066
+proc Vec2* (x = 0.0, y = 0.0): V2=Vec25,43
+proc `+`* (a, b: V2): V2= return Vec2(a.x + b.x, a.y + b.y)+8,105
+proc `-`* (a, b: V2): V2= return Vec2(a.x - b.x, a.y - b.y)-9,165
+proc `*`* (a, b: V2): V2= return Vec2(a.x * b.x, a.y * b.y)*10,225
+proc `/`* (a, b: V2): V2= return Vec2(a.x / b.x, a.y / b.y)/11,285
+proc `+`* (a: V2, b: float): V2= return Vec2(a.x + b, a.y + b)+12,345
+proc `-`* (a: V2, b: float): V2= return Vec2(a.x - b, a.y - b)-13,408
+proc `*`* (a: V2, b: float): V2= return Vec2(a.x * b, a.y * b)*14,471
+proc `/`* (a: V2, b: float): V2= return Vec2(a.x / b, a.y / b)/15,534
+proc `+=`* (a, b: V2)= a.x += b.x; a.y += b.y+=17,598
+proc `-=`* (a, b: V2)= a.x -= b.x; a.y -= b.y-=18,644
+proc `*=`* (a, b: V2)= a.x *= b.x; a.y *= b.y*=19,690
+proc `/=`* (a, b: V2)= a.x /= b.x; a.y /= b.y/=20,736
+proc `+=`* (a: V2, b: float)= a.x += b; a.y += b+=21,782
+proc `-=`* (a: V2, b: float)= a.x -= b; a.y -= b-=22,831
+proc `*=`* (a: V2, b: float)= a.x *= b; a.y *= b*=23,880
+proc `/=`* (a: V2, b: float)= a.x /= b; a.y /= b/=24,929
+proc `+`* (a: V2, b: (float, float)): V2= return Vec2(a.x + b[0], a.y + b[1])+26,979
+proc `-`* (a: V2, b: (float, float)): V2= return Vec2(a.x - b[0], a.y - b[1])-27,1057
+proc `*`* (a: V2, b: (float, float)): V2= return Vec2(a.x * b[0], a.y * b[1])*28,1135
+proc `/`* (a: V2, b: (float, float)): V2= return Vec2(a.x / b[0], a.y / b[1])/29,1213
+proc `+=`* (a: V2, b: (float, float))= a.x += b[0]; a.y += b[1]+=31,1292
+proc `-=`* (a: V2, b: (float, float))= a.x -= b[0]; a.y -= b[1]-=32,1356
+proc `*=`* (a: V2, b: (float, float))= a.x *= b[0]; a.y *= b[1]*=33,1420
+proc `/=`* (a: V2, b: (float, float))= a.x /= b[0]; a.y /= b[1]/=34,1484
+proc `+`* (a: (float, float), b: float): V2= return Vec2(a[0] + b, a[1] + b)+37,1577
+proc `-`* (a: (float, float), b: float): V2= return Vec2(a[0] - b, a[1] - b)-38,1654
+proc `*`* (a: (float, float), b: float): V2= return Vec2(a[0] * b, a[1] * b)*39,1731
+proc `/`* (a: (float, float), b: float): V2= return Vec2(a[0] / b, a[1] / b)/40,1808
+
+src/systems/renderable.nim,288
+proc newRectangleComponent* (): RectangleComponent=newRectangleComponent18,274
+  load = proc(sys: System, self: Entity)=load26,535
+  draw = proc(s: System, e: Entity)=draw29,593
+  load = proc(sys: System, self: Entity)=load38,834
+  draw = proc(s: System, e: Entity)=draw43,1024
+
+src/systems/physics.nim,409
+proc newPhysicsObject* (x, y, w, h: float, typeName: string): PhysicsObject=newPhysicsObject29,429
+proc newPhysicsBody* (vx = 0.0, vy = 0.0): PhysicsBody=newPhysicsBody41,714
+proc SetTiledObjects* (objs: seq[TiledObject])=SetTiledObjects51,974
+  load = proc(sys: System, self: Entity)=load61,1213
+  update = proc(sys: System, self: Entity)=update66,1300
+  preDraw = proc(s: System)=preDraw96,2221
+
+src/systems/player.nim,152
+proc newPlayer* (): Player=newPlayer13,130
+  load = proc(sys: System, self: Entity)=load21,342
+  update = proc(s: System, e: Entity)=update24,400
+
+src/assets.nim,101
+proc add* [T](i: T, id: string): T=add10,103
+proc get* (T: typedesc, id: string): auto=get14,186
+
+src/art.nim,1283
+  ImageObj = object of RootObjImageObj17,278
+template MainCamera* (): Camera= cameraMainCamera27,473
+proc sdlRect(r: Region): sdl.Rect=sdlRect29,514
+proc newImage* (): Image = Image(texture: nil, w: 0, h: 0)newImage38,667
+proc free* (obj: Image) = sdl.destroyTexture(obj.texture)free39,726
+proc w* (obj: Image): int {.inline.} = return obj.ww40,784
+proc h* (obj: Image): int {.inline.} = return obj.hh41,836
+proc load* (obj: Image, renderer: sdl.Renderer, file: string): bool {.discardable.} =load45,972
+proc loadImage* (renderer: Renderer, path: string): Image=loadImage65,1634
+proc blend(obj: Image): sdl.BlendMode =blend70,1754
+proc `blend=`(obj: Image, mode: sdl.BlendMode) {.inline.} =blend=77,1933
+proc alpha(obj: Image): int =alpha81,2050
+proc `alpha=`(obj: Image, alpha: int) =alpha=88,2195
+proc draw* (renderer: sdl.Renderer, obj: Image, x, y: float, rot = 0.0, flip = false, ox = -1, oy = -1): bool {.discardable.}=draw91,2290
+proc draw* (renderer: sdl.Renderer, obj: Image, reg: Region, x, y: float, rot = 0.0, flip = false, ox = -1, oy = -1): bool {.discardable.}=draw109,2895
+proc rect*(renderer: sdl.Renderer, x, y, w, h: float, rot=0.0)=rect129,3544
+proc lineRect*(renderer: sdl.Renderer, x, y, w, h: float, rot=0.0)=lineRect142,3896
+
+src/body.nim,689
+proc newBody* (x, y, w, h: float): Body=newBody9,88
+proc contains* (body, other: Body): bool =contains15,198
+proc x* (b: Body): float= b.position.xx21,492
+proc `x=`* (b: Body, v: float) = b.position.x = vx=22,531
+proc y* (b: Body): float= b.position.yy24,582
+proc `y=`* (b: Body, v: float) = b.position.y = vy=25,621
+proc width* (b: Body): float= b.size.xwidth27,672
+proc `width=`* (b: Body, v: float) = b.size.x = vwidth=28,711
+proc height* (b: Body): float= b.size.yheight30,762
+proc `height=`* (b: Body, v: float) = b.size.y = vheight=31,802
+proc center* (b: Body): V2= Vec2(b.x + b.width / 2, b.y + b.height / 2)center33,854
+proc `$`* (o: Body): string=$35,927
+
+src/platform.nim,550
+template R2D* (): auto = rendererR2D8,70
+template Win* (): auto = windowWin9,104
+  Result* = enumResult12,142
+  GameState* = enumGameState16,185
+template GameClock* (): auto = clockGameClock32,426
+proc CurrentGameState* (): auto = current_gamestateCurrentGameState34,464
+proc Pause* ()=Pause36,517
+proc Quit* ()=Quit39,563
+proc init* (size: (int, int), title: string): Result=init42,609
+proc update* ()=update63,1060
+proc windowSize* (): (int, int) =windowSize74,1276
+proc `windowSize=`* (size: (int, int))=windowSize=79,1398
+
+src/input.nim,1611
+proc initInput* ()=initInput300,8189
+proc newKeyState(state = 0, last = 0): KeyState=newKeyState313,8526
+# proc IsGamepadConnected* (, which = 0): bool=IsGamepadConnected319,8662
+proc pullControllerInfo(input: InputManager)=pullControllerInfo323,8768
+# proc IsButtonDown( )IsButtonDown326,8827
+proc mouseX* (): float= return input.mouse_xmouseX328,8851
+proc mouseY* (): float= return input.mouse_ymouseY329,8896
+proc mousePos* (): (float, float)=mousePos331,8942
+proc mouseDeltaX* (): float=return input.mouse_x - input.last_mouse_xmouseDeltaX334,9010
+proc mouseDeltaY* (): float=return input.mouse_y - input.last_mouse_ymouseDeltaY335,9080
+proc mouseDeltaPos* (): (float, float)=mouseDeltaPos336,9150
+proc getKeyInRange(key: cint): int=getKeyInRange342,9255
+proc isMouseLeftDown* (): bool=isMouseLeftDown348,9412
+proc isMouseLeftUp* (): bool=isMouseLeftUp351,9484
+proc isMouseRightDown* (): bool=isMouseRightDown354,9548
+proc isMouseRightUp* (): bool=isMouseRightUp357,9622
+proc isMouseLeftPressed* (): bool =isMouseLeftPressed360,9688
+proc isMouseLeftReleased* (): bool =isMouseLeftReleased365,9813
+proc isMouseRightPressed* (): bool =isMouseRightPressed370,9939
+proc isMouseRightReleased* (): bool =isMouseRightReleased375,10067
+proc isKeyDown* (key: Key): bool =isKeyDown380,10196
+proc isKeyUp* (key: Key): bool =isKeyUp388,10398
+proc isKeyReleased* (key: Key): bool=isKeyReleased391,10462
+proc isKeyPressed* (key: Key): bool=isKeyPressed401,10729
+proc inputUpdate* ()=inputUpdate411,10994
+proc inputHandleEvent* (ev: sdl.Event)=inputHandleEvent447,12168
+
+src/ecs.nim,1131
+proc default_load         (s: System, e: Entity) = discarddefault_load29,635
+proc default_preUpdate    (s: System)            = discarddefault_preUpdate30,694
+proc default_update       (s: System, e: Entity) = discarddefault_update31,753
+proc default_render       (s: System, e: Entity) = discarddefault_render32,812
+proc default_destroy      (s: System, e: Entity) = discarddefault_destroy33,871
+proc default_preDraw      (s: System)            = discarddefault_preDraw34,930
+proc add* [T](self: Entity, component: T): T {.discardable.} =add36,990
+proc get* (self: Entity, T: typedesc): T =get41,1134
+proc has* (self: Entity, T: typedesc): bool=has44,1222
+proc has* (self: Entity, t: string): bool=has47,1310
+proc newSystem(newSystem50,1391
+proc matches(s: System, e: Entity): bool=matches74,1972
+proc newWorld* (): World=newWorld79,2095
+template EntityWorld* (): auto = worldEntityWorld86,2232
+proc update* (world: World)=update88,2272
+proc draw* (world: World)=draw107,2846
+proc createEntity* (world: World): auto {.discardable.}=createEntity116,3090
+proc createSystem* (createSystem125,3303
+
+src/VectorGuy.nim,0
+
+src/tiled.nim,216
+proc loadTileset* (path: string): TiledTileset=loadTileset58,1057
+proc loadTiledMap* (path: string): TiledMap=loadTiledMap96,2477
+proc drawTiledMap* (r2d: sdl.Renderer, tiledmap: TiledMap)=drawTiledMap194,5352
+
+Makefile,0

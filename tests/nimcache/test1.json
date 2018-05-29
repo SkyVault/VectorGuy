@@ -1,0 +1,10 @@
+{"compile":[
+["/home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/stdlib_system.c", "gcc -c  -w  -I/home/dustin/Documents/Nim/lib -o /home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/stdlib_system.o /home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/stdlib_system.c"],
+["/home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/VectorGuy_test1.c", "gcc -c  -w  -I/home/dustin/Documents/Nim/lib -o /home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/VectorGuy_test1.o /home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/VectorGuy_test1.c"]
+],
+"link":[
+"/home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/stdlib_system.o",
+"/home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/VectorGuy_test1.o"
+],
+"linkcmd": "gcc   -o /home/dustin/Documents/Nim_Projects/VectorGuy/tests/test1  /home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/stdlib_system.o /home/dustin/Documents/Nim_Projects/VectorGuy/tests/nimcache/VectorGuy_test1.o    -ldl"
+}
