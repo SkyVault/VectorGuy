@@ -932,7 +932,7 @@ nimRegisterGlobalMarker(TM_TeL3eguZflwi1XYBGx8dCA_10);
 	T11_ = (tyObject_BodycolonObjectType__gcAPnvgqasHnAwLl6W9cWFQ*)0;
 	T11_ = add_5Cb4UFFJROnyavYIstFf0g(player_ent_W1tFxcTbM9a112UxpdUA2fw, T10_);
 	nimln_(30, "VectorGuy.nim");
-	nimln_(41, "physics.nim");
+	nimln_(42, "physics.nim");
 	T12_ = (tyObject_PhysicsBodycolonObjectType__qOCpO56KLJz1SFjXu8FuZw*)0;
 	T12_ = newPhysicsBody_E9bkOoZjHaaq6BI9a9aeYZy1A(0.0, 0.0);
 	T13_ = (tyObject_PhysicsBodycolonObjectType__qOCpO56KLJz1SFjXu8FuZw*)0;

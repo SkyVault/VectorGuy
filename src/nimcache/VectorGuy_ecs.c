@@ -240,6 +240,7 @@ struct tyObject_PhysicsBodycolonObjectType__qOCpO56KLJz1SFjXu8FuZw {
 tyObject_V2colonObjectType__7QktHEx9bk9c49aaJTG6xOEFQ* velocity;
 NF friction;
 NIM_BOOL isOnGround;
+NIM_BOOL isOnLadder;
 NF gravity_scale;
 tyEnum_PhysicsType_JOO6TjZ3B9bNSHGgTMd9cP9aQ physicsType;
 };

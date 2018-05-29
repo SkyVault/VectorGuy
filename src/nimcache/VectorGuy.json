@@ -1,9 +1,5 @@
 {"compile":[
-["/home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_VectorGuy.c", "gcc -c  -w  -I/home/dustin/Documents/Nim/lib -o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_VectorGuy.o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_VectorGuy.c"],
-["/home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_ecs.c", "gcc -c  -w  -I/home/dustin/Documents/Nim/lib -o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_ecs.o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_ecs.c"],
-["/home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/sdl2_nim_sdl.c", "gcc -c  -w  -I/home/dustin/Documents/Nim/lib -o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/sdl2_nim_sdl.o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/sdl2_nim_sdl.c"],
-["/home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_player.c", "gcc -c  -w  -I/home/dustin/Documents/Nim/lib -o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_player.o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_player.c"],
-["/home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_renderable.c", "gcc -c  -w  -I/home/dustin/Documents/Nim/lib -o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_renderable.o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_renderable.c"]
+["/home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_player.c", "gcc -c  -w  -I/home/dustin/Documents/Nim/lib -o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_player.o /home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_player.c"]
 ],
 "link":[
 "/home/dustin/Documents/Nim_Projects/VectorGuy/src/nimcache/VectorGuy_VectorGuy.o",

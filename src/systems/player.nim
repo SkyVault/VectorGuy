@@ -35,6 +35,12 @@ var PlayerController = EntityWorld.createSystem(
       phys.velocity.x += SPEED * GameClock.dt
       sprite.flip = false
 
+    if phys.isOnLadder and isKeyDown(Key.DOWN):
+      phys.velocity.y += SPEED * GameClock.dt * 15
+
+    if phys.isOnLadder and isKeyDown(Key.UP):
+      phys.velocity.y -= SPEED * GameClock.dt * 15
+
     if isKeyDown(Key.z) and phys.isOnGround:
       phys.velocity.y -= 400.0
 

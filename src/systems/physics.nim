@@ -18,6 +18,7 @@ type
     velocity*: V2
     friction*: float
     isOnGround*: bool
+    isOnLadder*: bool
     gravity_scale: float
     physicsType: PhysicsType
 
@@ -44,6 +45,7 @@ proc newPhysicsBody* (vx = 0.0, vy = 0.0): PhysicsBody=
     friction: 0.02,
     gravity_scale: 1.0,
     isOnGround: false,
+    isOnLadder: false,
     physicsType: PhysicsType.Dynamic
   )
 
@@ -70,23 +72,28 @@ var PhysicsSystem = EntityWorld.createSystem(
     var scaled_y_gravity = GRAVITY[1] * phys.gravity_scale
     scaled_y_gravity *= (if phys.velocity.y > 0: 2.0 else: 1.0)
 
-    phys.velocity.y += scaled_y_gravity * GameClock.dt
+    if not phys.isOnLadder:
+      phys.velocity.y += scaled_y_gravity * GameClock.dt
      
     var xbody = newBody(body.x + phys.velocity.x * GameClock.dt, body.y, body.width, body.height)
     var ybody = newBody(body.x, body.y + phys.velocity.y * GameClock.dt, body.width, body.height)
 
     phys.isOnGround = false
+    phys.isOnLadder = false
+
     for o in tiledObjects:
-      if o.physicsType == PhysicsType.Ladder: continue
-      
-      if o.contains(xbody):
+      if o.contains(xbody) and o.physicsType != PhysicsType.Ladder:
         xbody = body
       
       if o.contains(ybody):
         phys.isOnGround = true
-        ybody = body
         phys.velocity.y = 0
-        ybody.y = o.y - ybody.height
+
+        if o.physicsType == PhysicsType.Ladder:
+          phys.isOnLadder = true
+        else:
+          ybody.y = o.y - ybody.height
+
 
     phys.velocity *= math.pow(phys.friction, GameClock.dt)
 
