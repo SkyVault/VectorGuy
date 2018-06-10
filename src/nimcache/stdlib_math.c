@@ -40,6 +40,20 @@ N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, isPowerOfTwo_M0Db9b9cHxuUgw2ZF0P8utPg)(NI x) {
 	return result;
 }
 
+N_LIB_PRIVATE N_NIMCALL(NI, nextPowerOfTwo_gcitR3TEXHJ3GR9bmwIvtRA)(NI x) {
+	NI result;
+	result = (NI)0;
+	result = (NI)(x - ((NI) 1));
+	result = (NI)(result | (NI)((NU64)(result) >> (NU64)(((NI) 32))));
+	result = (NI)(result | (NI)((NU64)(result) >> (NU64)(((NI) 16))));
+	result = (NI)(result | (NI)((NU64)(result) >> (NU64)(((NI) 8))));
+	result = (NI)(result | (NI)((NU64)(result) >> (NU64)(((NI) 4))));
+	result = (NI)(result | (NI)((NU64)(result) >> (NU64)(((NI) 2))));
+	result = (NI)(result | (NI)((NU64)(result) >> (NU64)(((NI) 1))));
+	result += (NI)(((NI) 1) + (x <= ((NI) 0)));
+	return result;
+}
+
 static N_INLINE(void, nimFrame)(TFrame* s) {
 	NI T1_;
 	T1_ = (NI)0;

@@ -12,12 +12,6 @@ proc newBody* (x, y, w, h: float): Body=
     size: Vec2(w, h)
   )
 
-proc contains* (body, other: Body): bool =
-  return body.position.x + body.size.x > other.position.x and 
-         body.position.x < other.position.x + other.size.x and
-         body.position.y + body.size.y > other.position.y and 
-         body.position.y < other.position.y + other.size.y
-  
 proc x* (b: Body): float= b.position.x
 proc `x=`* (b: Body, v: float) = b.position.x = v
 
@@ -34,3 +28,13 @@ proc center* (b: Body): V2= Vec2(b.x + b.width / 2, b.y + b.height / 2)
 
 proc `$`* (o: Body): string=
   result = "Body { x: " & $o.x & ", y: " & $o.y & ", w: " & $o.width & ", h: " & $o.height & "}"
+
+proc contains* (body, other: Body): bool =
+  return body.x + body.width > other.x and 
+         body.x < other.x + other.width and
+         body.y + body.height > other.y and 
+         body.y < other.y + other.height
+
+proc contains* (body: Body, other: V2): bool =
+  return other.x > body.x and other.x < body.x + body.width and
+         other.y > body.y and other.y < body.y + body.height

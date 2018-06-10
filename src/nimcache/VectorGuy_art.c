@@ -21,6 +21,7 @@
 #undef near
 #undef powerpc
 #undef unix
+typedef struct tyTuple_0vYzovSm9aKYybyF8MRuBJQ tyTuple_0vYzovSm9aKYybyF8MRuBJQ;
 typedef struct tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q;
 typedef struct TNimType TNimType;
 typedef struct TNimNode TNimNode;
@@ -50,6 +51,12 @@ typedef struct tyObject_Rect_qiXweduDJk1iLE5aHysNdQ tyObject_Rect_qiXweduDJk1iLE
 typedef struct tyObject_Point_O882QUBegNwSZhlvLsYQRw tyObject_Point_O882QUBegNwSZhlvLsYQRw;
 typedef struct NimStringDesc NimStringDesc;
 typedef struct TGenericSeq TGenericSeq;
+struct tyTuple_0vYzovSm9aKYybyF8MRuBJQ {
+NF Field0;
+NF Field1;
+NF Field2;
+NF Field3;
+};
 typedef NU8 tyEnum_TNimKind_jIBKr1ejBgsfM33Kxw4j7A;
 typedef NU8 tySet_tyEnum_TNimTypeFlag_v8QUszD1sWlSIWZz7mC4bQ;
 typedef N_NIMCALL_PTR(void, tyProc_ojoeKfW4VYIm36I9cpDTQIg) (void* p, NI op);
@@ -179,6 +186,12 @@ tyObject_CellSet_jG87P0AI9aZtss9ccTYBIISQ marked;
 tyObject_CellSeq_Axo1XVm9aaQueTOldv8le5w additionalRoots;
 NI gcThreadId;
 };
+struct tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ {
+  RootObj Sup;
+void* texture;
+NI w;
+NI h;
+};
 struct tyObject_V2colonObjectType__7QktHEx9bk9c49aaJTG6xOEFQ {
 NF x;
 NF y;
@@ -201,12 +214,6 @@ int y;
 };
 typedef NI32 tyEnum_RendererFlip_v7zeNYRvzJgcDDS9cEco6wg;
 typedef N_CDECL_PTR(int, tyProc_oVfcvGczxlST8hWjhSa9aHA) (void* renderer, void* texture, tyObject_Rect_qiXweduDJk1iLE5aHysNdQ* srcrect, tyObject_Rect_qiXweduDJk1iLE5aHysNdQ* dstrect, double angle, tyObject_Point_O882QUBegNwSZhlvLsYQRw* center, tyEnum_RendererFlip_v7zeNYRvzJgcDDS9cEco6wg flip);
-struct tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ {
-  RootObj Sup;
-void* texture;
-NI w;
-NI h;
-};
 struct TGenericSeq {
 NI len;
 NI reserved;
@@ -224,7 +231,7 @@ typedef N_CDECL_PTR(int, tyProc_Z3C0z9blaIY9abfEJhIF9b1WQ) (void* texture, NU32*
 typedef N_CDECL_PTR(void, tyProc_32w2ZypAyMWuajvi2Jt79cg) (void* texture);
 N_NIMCALL(void, nimGCvisit)(void* d, NI op);
 static N_NIMCALL(void, Marker_tyRef_gp9a09azZ9aBufqmUN9aOefMOw)(void* p, NI op);
-static N_NIMCALL(void, TM_w2y8raIq9a7dDr5q9chSxV1w_3)(void);
+static N_NIMCALL(void, TM_w2y8raIq9a7dDr5q9chSxV1w_4)(void);
 N_NIMCALL(void, nimRegisterGlobalMarker)(tyProc_T4eqaYlFJYZUv9aG9b1TV0bQ markerProc);
 N_NIMCALL(void*, newObj)(TNimType* typ, NI size);
 N_LIB_PRIVATE N_NIMCALL(tyObject_V2colonObjectType__7QktHEx9bk9c49aaJTG6xOEFQ*, Vec2_FI9b5IBktnCnUUYt6xN1b2g)(NF x, NF y);
@@ -238,13 +245,14 @@ N_LIB_PRIVATE N_NOINLINE(void, addZCT_fCDI7oO1NNVXXURtxSzsRw)(tyObject_CellSeq_A
 static N_INLINE(void, asgnRef)(void** dest, void* src);
 static N_INLINE(void, incRef_9cAA5YuQAAC3MVbnGeV86swsystem)(tyObject_Cell_1zcF9cV8XIAtbN8h5HRUB8g* c);
 static N_INLINE(void, decRef_MV4BBk6J1qu70IbBxwEn4wsystem)(tyObject_Cell_1zcF9cV8XIAtbN8h5HRUB8g* c);
+static N_NIMCALL(void, Marker_tyRef_0kDVS9b1UyEqr8DfAGXwn9cQ)(void* p, NI op);
 N_NOINLINE(void, chckNil)(void* p);
 N_LIB_PRIVATE N_NIMCALL(int, toCint_yAPwf7d9aO5za0vgIa7yl8g)(NI x);
 N_LIB_PRIVATE N_NIMCALL(tyObject_Rect_qiXweduDJk1iLE5aHysNdQ, sdlRect_ZAq9cYc7ulNNn21yQGBT79cg)(tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ* r);
-static N_NIMCALL(void, Marker_tyRef_0kDVS9b1UyEqr8DfAGXwn9cQ)(void* p, NI op);
 N_LIB_PRIVATE N_NIMCALL(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*, newImage_tWxVwZ28d3tVcmFKmMn6ag)(void);
 N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, load_HwT5E7mbKGCJy0HINVoqrA)(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ* obj, void* renderer, NimStringDesc* file);
 static N_NIMCALL(void, Marker_tyRef_u6eWcr48DqP0Ue9cUPPUypg)(void* p, NI op);
+tyTuple_0vYzovSm9aKYybyF8MRuBJQ current_color_ZVKdD8C4l7QMQR2o7qII2A;
 tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q* camera_gC9bhqCy0IQgaCB9bxtui42g;
 extern TNimType NTI_gcAPnvgqasHnAwLl6W9cWFQ_;
 TNimType NTI_uk8C2BjPELBcegmVYWmD5Q_;
@@ -252,15 +260,15 @@ extern TNimType NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_;
 TNimType NTI_gp9a09azZ9aBufqmUN9aOefMOw_;
 extern TFrame* framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw;
 extern tyObject_GcHeap_1TRH1TZMaVZTnLNcIHuNFQ gch_IcYaEuuWivYAS86vFMTS3Q;
-extern tyProc_XKGgUlQDoYOavZdP09bvlvg Dl_187063_;
-extern tyProc_XKGgUlQDoYOavZdP09bvlvg Dl_187103_;
-extern tyProc_oVfcvGczxlST8hWjhSa9aHA Dl_120390_;
 extern TNimType NTI_13RNkKqUOX1TtorOUlKtqA_;
 TNimType NTI_CILs0aI9a15OLIJJawRpwrQ_;
 extern TNimType NTI_vr5DoT1jILTGdRlYv1OYpw_;
 extern TNimType NTI_rR5Bzr1D5krxoo1NcNyeMA_;
 TNimType NTI_0kDVS9b1UyEqr8DfAGXwn9cQ_;
-extern tyProc_1LIoIPgxf1fnU6YXXXDfCA Dl_186060_;
+extern tyProc_XKGgUlQDoYOavZdP09bvlvg Dl_203103_;
+extern tyProc_oVfcvGczxlST8hWjhSa9aHA Dl_120390_;
+extern tyProc_XKGgUlQDoYOavZdP09bvlvg Dl_203063_;
+extern tyProc_1LIoIPgxf1fnU6YXXXDfCA Dl_202060_;
 extern tyProc_DusjKySyJW30WdV9bsteVxw Dl_119881_;
 extern tyProc_09bvyvHFtWbkzL5AHgf0bKw Dl_112926_;
 extern tyProc_Z3C0z9blaIY9abfEJhIF9b1WQ Dl_120149_;
@@ -268,13 +276,18 @@ extern tyProc_32w2ZypAyMWuajvi2Jt79cg Dl_120413_;
 TNimType NTI_3GkqZw84cOmRRUHsNmUZKQ_;
 extern TNimType NTI_VNjfwc2TWWaPlgYb1NJvkA_;
 TNimType NTI_u6eWcr48DqP0Ue9cUPPUypg_;
+NIM_CONST tyTuple_0vYzovSm9aKYybyF8MRuBJQ TM_w2y8raIq9a7dDr5q9chSxV1w_2 = {1.0000000000000000e+00,
+1.0000000000000000e+00,
+1.0000000000000000e+00,
+1.0000000000000000e+00}
+;
 static N_NIMCALL(void, Marker_tyRef_gp9a09azZ9aBufqmUN9aOefMOw)(void* p, NI op) {
 	tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q* a;
 	a = (tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q*)p;
 	nimGCvisit((void*)(*a).Sup.position, op);
 	nimGCvisit((void*)(*a).Sup.size, op);
 }
-static N_NIMCALL(void, TM_w2y8raIq9a7dDr5q9chSxV1w_3)(void) {
+static N_NIMCALL(void, TM_w2y8raIq9a7dDr5q9chSxV1w_4)(void) {
 	nimGCvisit((void*)camera_gC9bhqCy0IQgaCB9bxtui42g, 0);
 }
 
@@ -407,39 +420,29 @@ static N_INLINE(void, asgnRef)(void** dest, void* src) {
 	(*dest) = src;
 	popFrame();
 }
-
-N_LIB_PRIVATE N_NIMCALL(void, lineRect_KBJ7sNgV4lSRrRq4ulkq6w)(void* renderer, NF x, NF y, NF w, NF h, NF rot) {
-	NF xx;
-	NF yy;
-	int T1_;
-	nimfr_("lineRect", "art.nim");
-	nimln_(149, "art.nim");
-	xx = ((NF)(((NF)(x) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).x))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
-	nimln_(150, "art.nim");
-	yy = ((NF)(((NF)(y) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).y))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
-	nimln_(151, "art.nim");
-	nimln_(153, "art.nim");
-	nimln_(154, "art.nim");
-	T1_ = (int)0;
-	T1_ = Dl_187063_(renderer, ((NI16) (xx)), ((NI16) (yy)), ((NI16) (((NF)(xx) + (NF)(((NF)(w) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom)))))), ((NI16) (((NF)(yy) + (NF)(((NF)(h) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom)))))), ((NU8) 255), ((NU8) 255), ((NU8) 255), ((NU8) 255));
-	T1_;
-	popFrame();
+static N_NIMCALL(void, Marker_tyRef_0kDVS9b1UyEqr8DfAGXwn9cQ)(void* p, NI op) {
+	tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ* a;
+	a = (tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*)p;
 }
 
-N_LIB_PRIVATE N_NIMCALL(void, rect_KBJ7sNgV4lSRrRq4ulkq6w_2)(void* renderer, NF x, NF y, NF w, NF h, NF rot) {
+N_LIB_PRIVATE N_NIMCALL(void, rect_KBJ7sNgV4lSRrRq4ulkq6w)(void* renderer, NF x, NF y, NF w, NF h, NF rot) {
 	NF xx;
 	NF yy;
 	int T1_;
 	nimfr_("rect", "art.nim");
-	nimln_(136, "art.nim");
-	xx = ((NF)(((NF)(x) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).x))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
-	nimln_(137, "art.nim");
-	yy = ((NF)(((NF)(y) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).y))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
-	nimln_(138, "art.nim");
-	nimln_(140, "art.nim");
 	nimln_(141, "art.nim");
+	xx = ((NF)(((NF)(x) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).x))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
+	nimln_(142, "art.nim");
+	yy = ((NF)(((NF)(y) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).y))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
+	nimln_(143, "art.nim");
+	nimln_(145, "art.nim");
+	nimln_(146, "art.nim");
+	nimln_(147, "art.nim");
+	nimln_(148, "art.nim");
+	nimln_(149, "art.nim");
+	nimln_(150, "art.nim");
 	T1_ = (int)0;
-	T1_ = Dl_187103_(renderer, ((NI16) (xx)), ((NI16) (yy)), ((NI16) (((NF)(xx) + (NF)(((NF)(w) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom)))))), ((NI16) (((NF)(yy) + (NF)(((NF)(h) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom)))))), ((NU8) 255), ((NU8) 255), ((NU8) 255), ((NU8) 255));
+	T1_ = Dl_203103_(renderer, ((NI16) (xx)), ((NI16) (yy)), ((NI16) (((NF)(xx) + (NF)(((NF)(w) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom)))))), ((NI16) (((NF)(yy) + (NF)(((NF)(h) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom)))))), ((NU8) (((NF)(current_color_ZVKdD8C4l7QMQR2o7qII2A.Field0) * (NF)(2.5500000000000000e+02)))), ((NU8) (((NF)(current_color_ZVKdD8C4l7QMQR2o7qII2A.Field1) * (NF)(2.5500000000000000e+02)))), ((NU8) (((NF)(current_color_ZVKdD8C4l7QMQR2o7qII2A.Field2) * (NF)(2.5500000000000000e+02)))), ((NU8) (((NF)(current_color_ZVKdD8C4l7QMQR2o7qII2A.Field3) * (NF)(2.5500000000000000e+02)))));
 	T1_;
 	popFrame();
 }
@@ -448,16 +451,16 @@ N_LIB_PRIVATE N_NIMCALL(tyObject_Rect_qiXweduDJk1iLE5aHysNdQ, sdlRect_ZAq9cYc7ul
 	tyObject_Rect_qiXweduDJk1iLE5aHysNdQ result;
 	nimfr_("sdlRect", "art.nim");
 {	memset((void*)(&result), 0, sizeof(tyObject_Rect_qiXweduDJk1iLE5aHysNdQ));
-	nimln_(36, "art.nim");
+	nimln_(38, "art.nim");
 	chckNil((void*)(&result));
 	memset((void*)(&result), 0, sizeof(tyObject_Rect_qiXweduDJk1iLE5aHysNdQ));
-	nimln_(37, "art.nim");
-	result.x = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) ((*(*r).pos).x)));
-	nimln_(38, "art.nim");
-	result.y = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) ((*(*r).pos).y)));
 	nimln_(39, "art.nim");
-	result.w = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) ((*(*r).size).x)));
+	result.x = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) ((*(*r).pos).x)));
 	nimln_(40, "art.nim");
+	result.y = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) ((*(*r).pos).y)));
+	nimln_(41, "art.nim");
+	result.w = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) ((*(*r).size).x)));
+	nimln_(42, "art.nim");
 	result.h = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) ((*(*r).size).y)));
 	goto BeforeRet_;
 	}BeforeRet_: ;
@@ -476,35 +479,35 @@ N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, draw_FIJoyt7S8QvQbuv4xQGSGQ)(void* renderer, t
 	tyObject_Point_O882QUBegNwSZhlvLsYQRw pnt;
 	nimfr_("draw", "art.nim");
 {	result = (NIM_BOOL)0;
-	nimln_(116, "art.nim");
+	nimln_(121, "art.nim");
 	dx = ((NF)(((NF)(x) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).x))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
-	nimln_(117, "art.nim");
+	nimln_(122, "art.nim");
 	dy = ((NF)(((NF)(y) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).y))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
-	nimln_(118, "art.nim");
+	nimln_(123, "art.nim");
 	dw = ((NF)((*(*reg).size).x) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
-	nimln_(119, "art.nim");
+	nimln_(124, "art.nim");
 	dh = ((NF)((*(*reg).size).y) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
-	nimln_(120, "art.nim");
+	nimln_(125, "art.nim");
 	chckNil((void*)(&rect));
 	memset((void*)(&rect), 0, sizeof(tyObject_Rect_qiXweduDJk1iLE5aHysNdQ));
 	rect.x = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) (dx)));
 	rect.y = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) (dy)));
 	rect.w = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) (dw)));
 	rect.h = toCint_yAPwf7d9aO5za0vgIa7yl8g(((NI) (dh)));
-	nimln_(121, "art.nim");
+	nimln_(126, "art.nim");
 	sreg = sdlRect_ZAq9cYc7ulNNn21yQGBT79cg(reg);
-	nimln_(122, "art.nim");
+	nimln_(127, "art.nim");
 	chckNil((void*)(&pnt));
 	memset((void*)(&pnt), 0, sizeof(tyObject_Point_O882QUBegNwSZhlvLsYQRw));
 	pnt.x = toCint_yAPwf7d9aO5za0vgIa7yl8g(ox);
 	pnt.y = toCint_yAPwf7d9aO5za0vgIa7yl8g(oy);
-	nimln_(124, "art.nim");
+	nimln_(129, "art.nim");
 	{
 		tyObject_Point_O882QUBegNwSZhlvLsYQRw* T3_;
 		tyEnum_RendererFlip_v7zeNYRvzJgcDDS9cEco6wg T11_;
 		int T17_;
 		T3_ = (tyObject_Point_O882QUBegNwSZhlvLsYQRw*)0;
-		nimln_(129, "art.nim");
+		nimln_(134, "art.nim");
 		{
 			NIM_BOOL T6_;
 			T6_ = (NIM_BOOL)0;
@@ -522,7 +525,7 @@ N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, draw_FIJoyt7S8QvQbuv4xQGSGQ)(void* renderer, t
 		}
 		LA4_: ;
 		T11_ = (tyEnum_RendererFlip_v7zeNYRvzJgcDDS9cEco6wg)0;
-		nimln_(130, "art.nim");
+		nimln_(135, "art.nim");
 		{
 			if (!flip) goto LA14_;
 			T11_ = ((tyEnum_RendererFlip_v7zeNYRvzJgcDDS9cEco6wg) 1);
@@ -536,14 +539,14 @@ N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, draw_FIJoyt7S8QvQbuv4xQGSGQ)(void* renderer, t
 		T17_ = (int)0;
 		T17_ = Dl_120390_(renderer, (*obj).texture, (&sreg), (&rect), rot, T3_, T11_);
 		if (!(T17_ == ((NI32) 0))) goto LA18_;
-		nimln_(131, "art.nim");
+		nimln_(136, "art.nim");
 		result = NIM_TRUE;
 		goto BeforeRet_;
 	}
 	goto LA1_;
 	LA18_: ;
 	{
-		nimln_(133, "art.nim");
+		nimln_(138, "art.nim");
 		result = NIM_FALSE;
 		goto BeforeRet_;
 	}
@@ -552,9 +555,34 @@ N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, draw_FIJoyt7S8QvQbuv4xQGSGQ)(void* renderer, t
 	popFrame();
 	return result;
 }
-static N_NIMCALL(void, Marker_tyRef_0kDVS9b1UyEqr8DfAGXwn9cQ)(void* p, NI op) {
-	tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ* a;
-	a = (tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*)p;
+
+N_LIB_PRIVATE N_NIMCALL(void, setColor_7k69cwHLgkJ9bCcjBZQtbbsg)(void* renderer, tyTuple_0vYzovSm9aKYybyF8MRuBJQ* c) {
+	nimfr_("setColor", "art.nim");
+	nimln_(100, "art.nim");
+	current_color_ZVKdD8C4l7QMQR2o7qII2A = (*c);
+	popFrame();
+}
+
+N_LIB_PRIVATE N_NIMCALL(void, lineRect_KBJ7sNgV4lSRrRq4ulkq6w_2)(void* renderer, NF x, NF y, NF w, NF h, NF rot) {
+	NF xx;
+	NF yy;
+	int T1_;
+	nimfr_("lineRect", "art.nim");
+	nimln_(154, "art.nim");
+	xx = ((NF)(((NF)(x) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).x))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
+	nimln_(155, "art.nim");
+	yy = ((NF)(((NF)(y) - (NF)((*(*camera_gC9bhqCy0IQgaCB9bxtui42g).Sup.position).y))) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom));
+	nimln_(156, "art.nim");
+	nimln_(158, "art.nim");
+	nimln_(159, "art.nim");
+	nimln_(160, "art.nim");
+	nimln_(161, "art.nim");
+	nimln_(162, "art.nim");
+	nimln_(163, "art.nim");
+	T1_ = (int)0;
+	T1_ = Dl_203063_(renderer, ((NI16) (xx)), ((NI16) (yy)), ((NI16) (((NF)(xx) + (NF)(((NF)(w) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom)))))), ((NI16) (((NF)(yy) + (NF)(((NF)(h) * (NF)((*camera_gC9bhqCy0IQgaCB9bxtui42g).zoom)))))), ((NU8) (((NF)(current_color_ZVKdD8C4l7QMQR2o7qII2A.Field0) * (NF)(2.5500000000000000e+02)))), ((NU8) (((NF)(current_color_ZVKdD8C4l7QMQR2o7qII2A.Field1) * (NF)(2.5500000000000000e+02)))), ((NU8) (((NF)(current_color_ZVKdD8C4l7QMQR2o7qII2A.Field2) * (NF)(2.5500000000000000e+02)))), ((NU8) (((NF)(current_color_ZVKdD8C4l7QMQR2o7qII2A.Field3) * (NF)(2.5500000000000000e+02)))));
+	T1_;
+	popFrame();
 }
 
 N_LIB_PRIVATE N_NIMCALL(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*, newImage_tWxVwZ28d3tVcmFKmMn6ag)(void) {
@@ -562,7 +590,7 @@ N_LIB_PRIVATE N_NIMCALL(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*, newImage_tWx
 	tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ* T1_;
 	nimfr_("newImage", "art.nim");
 	result = (tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*)0;
-	nimln_(44, "art.nim");
+	nimln_(46, "art.nim");
 	T1_ = (tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*)0;
 	T1_ = (tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*) newObj((&NTI_0kDVS9b1UyEqr8DfAGXwn9cQ_), sizeof(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ));
 	(*T1_).Sup.m_type = (&NTI_CILs0aI9a15OLIJJawRpwrQ_);
@@ -581,52 +609,52 @@ N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, load_HwT5E7mbKGCJy0HINVoqrA)(tyObject_ImageObj
 	int h;
 	nimfr_("load", "art.nim");
 {	result = (NIM_BOOL)0;
-	nimln_(52, "art.nim");
-	result = NIM_TRUE;
 	nimln_(54, "art.nim");
+	result = NIM_TRUE;
+	nimln_(56, "art.nim");
 	T1_ = (void**)0;
-	T1_ = Dl_186060_(renderer, (file ? file->data : (NCSTRING)""));
+	T1_ = Dl_202060_(renderer, (file ? file->data : (NCSTRING)""));
 	(*obj).texture = ((void*) (T1_));
-	nimln_(55, "art.nim");
+	nimln_(57, "art.nim");
 	{
 		NCSTRING T6_;
 		if (!((*obj).texture == NIM_NIL)) goto LA4_;
-		nimln_(56, "art.nim");
 		nimln_(58, "art.nim");
+		nimln_(60, "art.nim");
 		T6_ = (NCSTRING)0;
 		T6_ = Dl_112926_();
 		Dl_119881_(((tyEnum_LogCategory_ZUw9c3kmm9boZHlT9aDBS7AXw) 1), "Can\'t load image %s: %s", (file ? file->data : (NCSTRING)""), T6_);
-		nimln_(59, "art.nim");
+		nimln_(61, "art.nim");
 		result = NIM_FALSE;
 		goto BeforeRet_;
 	}
 	LA4_: ;
 	w = (int)0;
 	h = (int)0;
-	nimln_(62, "art.nim");
+	nimln_(64, "art.nim");
 	{
 		int T9_;
 		NCSTRING T12_;
 		nimln_(400, "system.nim");
-		nimln_(62, "art.nim");
+		nimln_(64, "art.nim");
 		T9_ = (int)0;
 		T9_ = Dl_120149_((*obj).texture, NIM_NIL, NIM_NIL, (&w), (&h));
 		if (!!((T9_ == ((NI32) 0)))) goto LA10_;
-		nimln_(63, "art.nim");
 		nimln_(65, "art.nim");
+		nimln_(67, "art.nim");
 		T12_ = (NCSTRING)0;
 		T12_ = Dl_112926_();
 		Dl_119881_(((tyEnum_LogCategory_ZUw9c3kmm9boZHlT9aDBS7AXw) 1), "Can\'t get texture attributes: %s", T12_);
-		nimln_(66, "art.nim");
+		nimln_(68, "art.nim");
 		Dl_120413_((*obj).texture);
-		nimln_(67, "art.nim");
+		nimln_(69, "art.nim");
 		result = NIM_FALSE;
 		goto BeforeRet_;
 	}
 	LA10_: ;
-	nimln_(68, "art.nim");
+	nimln_(70, "art.nim");
 	(*obj).w = ((NI) (w));
-	nimln_(69, "art.nim");
+	nimln_(71, "art.nim");
 	(*obj).h = ((NI) (h));
 	}BeforeRet_: ;
 	popFrame();
@@ -638,9 +666,9 @@ N_LIB_PRIVATE N_NIMCALL(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*, loadImage_9c
 	NIM_BOOL T1_;
 	nimfr_("loadImage", "art.nim");
 	result = (tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*)0;
-	nimln_(72, "art.nim");
+	nimln_(74, "art.nim");
 	result = newImage_tWxVwZ28d3tVcmFKmMn6ag();
-	nimln_(73, "art.nim");
+	nimln_(75, "art.nim");
 	T1_ = (NIM_BOOL)0;
 	T1_ = load_HwT5E7mbKGCJy0HINVoqrA(result, renderer, path);
 	popFrame();
@@ -658,13 +686,13 @@ N_LIB_PRIVATE N_NIMCALL(tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ*,
 	tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ* T1_;
 	nimfr_("newRegion", "art.nim");
 	result = (tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ*)0;
-	nimln_(22, "art.nim");
+	nimln_(24, "art.nim");
 	T1_ = (tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ*)0;
 	T1_ = (tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ*) newObj((&NTI_u6eWcr48DqP0Ue9cUPPUypg_), sizeof(tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ));
 	(*T1_).Sup.m_type = (&NTI_3GkqZw84cOmRRUHsNmUZKQ_);
-	nimln_(23, "art.nim");
+	nimln_(25, "art.nim");
 	asgnRefNoCycle((void**) (&(*T1_).pos), Vec2_FI9b5IBktnCnUUYt6xN1b2g(x, y));
-	nimln_(24, "art.nim");
+	nimln_(26, "art.nim");
 	asgnRefNoCycle((void**) (&(*T1_).size), Vec2_FI9b5IBktnCnUUYt6xN1b2g(w, h));
 	result = T1_;
 	popFrame();
@@ -673,8 +701,10 @@ N_LIB_PRIVATE N_NIMCALL(tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ*,
 NIM_EXTERNC N_NOINLINE(void, VectorGuy_artInit000)(void) {
 	tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q* T1_;
 	nimfr_("art", "art.nim");
-nimRegisterGlobalMarker(TM_w2y8raIq9a7dDr5q9chSxV1w_3);
-	nimln_(28, "art.nim");
+nimRegisterGlobalMarker(TM_w2y8raIq9a7dDr5q9chSxV1w_4);
+	nimln_(21, "art.nim");
+	current_color_ZVKdD8C4l7QMQR2o7qII2A = TM_w2y8raIq9a7dDr5q9chSxV1w_2;
+	nimln_(30, "art.nim");
 	T1_ = (tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q*)0;
 	T1_ = (tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q*) newObj((&NTI_gp9a09azZ9aBufqmUN9aOefMOw_), sizeof(tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q));
 	(*T1_).Sup.Sup.Sup.m_type = (&NTI_uk8C2BjPELBcegmVYWmD5Q_);
@@ -688,24 +718,24 @@ nimRegisterGlobalMarker(TM_w2y8raIq9a7dDr5q9chSxV1w_3);
 }
 
 NIM_EXTERNC N_NOINLINE(void, VectorGuy_artDatInit000)(void) {
-static TNimNode* TM_w2y8raIq9a7dDr5q9chSxV1w_2[2];
-static TNimNode* TM_w2y8raIq9a7dDr5q9chSxV1w_4[3];
-static TNimNode* TM_w2y8raIq9a7dDr5q9chSxV1w_5[2];
+static TNimNode* TM_w2y8raIq9a7dDr5q9chSxV1w_3[2];
+static TNimNode* TM_w2y8raIq9a7dDr5q9chSxV1w_5[3];
+static TNimNode* TM_w2y8raIq9a7dDr5q9chSxV1w_6[2];
 static TNimNode TM_w2y8raIq9a7dDr5q9chSxV1w_0[10];
 NTI_uk8C2BjPELBcegmVYWmD5Q_.size = sizeof(tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q);
 NTI_uk8C2BjPELBcegmVYWmD5Q_.kind = 17;
 NTI_uk8C2BjPELBcegmVYWmD5Q_.base = (&NTI_gcAPnvgqasHnAwLl6W9cWFQ_);
-TM_w2y8raIq9a7dDr5q9chSxV1w_2[0] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[1];
+TM_w2y8raIq9a7dDr5q9chSxV1w_3[0] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[1];
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[1].kind = 1;
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[1].offset = offsetof(tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q, zoom);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[1].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[1].name = "zoom";
-TM_w2y8raIq9a7dDr5q9chSxV1w_2[1] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[2];
+TM_w2y8raIq9a7dDr5q9chSxV1w_3[1] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[2];
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[2].kind = 1;
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[2].offset = offsetof(tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q, rotation);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[2].typ = (&NTI_w9bl9a1ul9ctRJWiMl9cNnIMvg_);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[2].name = "rotation";
-TM_w2y8raIq9a7dDr5q9chSxV1w_0[0].len = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[0].kind = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[0].sons = &TM_w2y8raIq9a7dDr5q9chSxV1w_2[0];
+TM_w2y8raIq9a7dDr5q9chSxV1w_0[0].len = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[0].kind = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[0].sons = &TM_w2y8raIq9a7dDr5q9chSxV1w_3[0];
 NTI_uk8C2BjPELBcegmVYWmD5Q_.node = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[0];
 NTI_gp9a09azZ9aBufqmUN9aOefMOw_.size = sizeof(tyObject_CameracolonObjectType__uk8C2BjPELBcegmVYWmD5Q*);
 NTI_gp9a09azZ9aBufqmUN9aOefMOw_.kind = 22;
@@ -715,22 +745,22 @@ NTI_CILs0aI9a15OLIJJawRpwrQ_.size = sizeof(tyObject_ImageObj_CILs0aI9a15OLIJJawR
 NTI_CILs0aI9a15OLIJJawRpwrQ_.kind = 17;
 NTI_CILs0aI9a15OLIJJawRpwrQ_.base = (&NTI_13RNkKqUOX1TtorOUlKtqA_);
 NTI_CILs0aI9a15OLIJJawRpwrQ_.flags = 1;
-TM_w2y8raIq9a7dDr5q9chSxV1w_4[0] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[4];
+TM_w2y8raIq9a7dDr5q9chSxV1w_5[0] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[4];
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[4].kind = 1;
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[4].offset = offsetof(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ, texture);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[4].typ = (&NTI_vr5DoT1jILTGdRlYv1OYpw_);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[4].name = "texture";
-TM_w2y8raIq9a7dDr5q9chSxV1w_4[1] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[5];
+TM_w2y8raIq9a7dDr5q9chSxV1w_5[1] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[5];
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[5].kind = 1;
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[5].offset = offsetof(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ, w);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[5].typ = (&NTI_rR5Bzr1D5krxoo1NcNyeMA_);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[5].name = "w";
-TM_w2y8raIq9a7dDr5q9chSxV1w_4[2] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[6];
+TM_w2y8raIq9a7dDr5q9chSxV1w_5[2] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[6];
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[6].kind = 1;
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[6].offset = offsetof(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ, h);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[6].typ = (&NTI_rR5Bzr1D5krxoo1NcNyeMA_);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[6].name = "h";
-TM_w2y8raIq9a7dDr5q9chSxV1w_0[3].len = 3; TM_w2y8raIq9a7dDr5q9chSxV1w_0[3].kind = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[3].sons = &TM_w2y8raIq9a7dDr5q9chSxV1w_4[0];
+TM_w2y8raIq9a7dDr5q9chSxV1w_0[3].len = 3; TM_w2y8raIq9a7dDr5q9chSxV1w_0[3].kind = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[3].sons = &TM_w2y8raIq9a7dDr5q9chSxV1w_5[0];
 NTI_CILs0aI9a15OLIJJawRpwrQ_.node = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[3];
 NTI_0kDVS9b1UyEqr8DfAGXwn9cQ_.size = sizeof(tyObject_ImageObj_CILs0aI9a15OLIJJawRpwrQ*);
 NTI_0kDVS9b1UyEqr8DfAGXwn9cQ_.kind = 22;
@@ -739,17 +769,17 @@ NTI_0kDVS9b1UyEqr8DfAGXwn9cQ_.marker = Marker_tyRef_0kDVS9b1UyEqr8DfAGXwn9cQ;
 NTI_3GkqZw84cOmRRUHsNmUZKQ_.size = sizeof(tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ);
 NTI_3GkqZw84cOmRRUHsNmUZKQ_.kind = 17;
 NTI_3GkqZw84cOmRRUHsNmUZKQ_.base = (&NTI_13RNkKqUOX1TtorOUlKtqA_);
-TM_w2y8raIq9a7dDr5q9chSxV1w_5[0] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[8];
+TM_w2y8raIq9a7dDr5q9chSxV1w_6[0] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[8];
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[8].kind = 1;
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[8].offset = offsetof(tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ, pos);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[8].typ = (&NTI_VNjfwc2TWWaPlgYb1NJvkA_);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[8].name = "pos";
-TM_w2y8raIq9a7dDr5q9chSxV1w_5[1] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[9];
+TM_w2y8raIq9a7dDr5q9chSxV1w_6[1] = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[9];
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[9].kind = 1;
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[9].offset = offsetof(tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ, size);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[9].typ = (&NTI_VNjfwc2TWWaPlgYb1NJvkA_);
 TM_w2y8raIq9a7dDr5q9chSxV1w_0[9].name = "size";
-TM_w2y8raIq9a7dDr5q9chSxV1w_0[7].len = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[7].kind = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[7].sons = &TM_w2y8raIq9a7dDr5q9chSxV1w_5[0];
+TM_w2y8raIq9a7dDr5q9chSxV1w_0[7].len = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[7].kind = 2; TM_w2y8raIq9a7dDr5q9chSxV1w_0[7].sons = &TM_w2y8raIq9a7dDr5q9chSxV1w_6[0];
 NTI_3GkqZw84cOmRRUHsNmUZKQ_.node = &TM_w2y8raIq9a7dDr5q9chSxV1w_0[7];
 NTI_u6eWcr48DqP0Ue9cUPPUypg_.size = sizeof(tyObject_RegioncolonObjectType__3GkqZw84cOmRRUHsNmUZKQ*);
 NTI_u6eWcr48DqP0Ue9cUPPUypg_.kind = 22;

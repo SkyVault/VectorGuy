@@ -38,8 +38,8 @@ static N_INLINE(void, nimFrame)(TFrame* s);
 N_LIB_PRIVATE N_NOINLINE(void, stackOverflow_II46IjNZztN9bmbxUD8dt8g)(void);
 static N_INLINE(void, popFrame)(void);
 static void* TM_g5o5WEqRGC1LPWvqxdE8Kg_2;
-tyProc_XKGgUlQDoYOavZdP09bvlvg Dl_187063_;
-tyProc_XKGgUlQDoYOavZdP09bvlvg Dl_187103_;
+tyProc_XKGgUlQDoYOavZdP09bvlvg Dl_203103_;
+tyProc_XKGgUlQDoYOavZdP09bvlvg Dl_203063_;
 extern TFrame* framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw;
 STRING_LITERAL(TM_g5o5WEqRGC1LPWvqxdE8Kg_4, "libSDL2_gfx.so", 14);
 STRING_LITERAL(TM_g5o5WEqRGC1LPWvqxdE8Kg_6, "libSDL2_gfx.so.0.0.2", 20);
@@ -88,7 +88,7 @@ if (!((TM_g5o5WEqRGC1LPWvqxdE8Kg_2 = nimLoadLibrary(((NimStringDesc*) &TM_g5o5WE
 ||(TM_g5o5WEqRGC1LPWvqxdE8Kg_2 = nimLoadLibrary(((NimStringDesc*) &TM_g5o5WEqRGC1LPWvqxdE8Kg_12)))
 ||(TM_g5o5WEqRGC1LPWvqxdE8Kg_2 = nimLoadLibrary(((NimStringDesc*) &TM_g5o5WEqRGC1LPWvqxdE8Kg_14)))
 )) nimLoadLibraryError(((NimStringDesc*) &TM_g5o5WEqRGC1LPWvqxdE8Kg_15));
-	Dl_187063_ = (tyProc_XKGgUlQDoYOavZdP09bvlvg) nimGetProcAddr(TM_g5o5WEqRGC1LPWvqxdE8Kg_2, "rectangleRGBA");
-	Dl_187103_ = (tyProc_XKGgUlQDoYOavZdP09bvlvg) nimGetProcAddr(TM_g5o5WEqRGC1LPWvqxdE8Kg_2, "boxRGBA");
+	Dl_203103_ = (tyProc_XKGgUlQDoYOavZdP09bvlvg) nimGetProcAddr(TM_g5o5WEqRGC1LPWvqxdE8Kg_2, "boxRGBA");
+	Dl_203063_ = (tyProc_XKGgUlQDoYOavZdP09bvlvg) nimGetProcAddr(TM_g5o5WEqRGC1LPWvqxdE8Kg_2, "rectangleRGBA");
 }
 

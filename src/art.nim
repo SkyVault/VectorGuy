@@ -18,6 +18,8 @@ type
     texture: sdl.Texture # Image texture
     w, h: int # Image dimensions
 
+var current_color = (1.0, 1.0, 1.0, 1.0)
+
 proc newRegion* (x, y, w, h: float): Region=
   result = Region(
     pos: Vec2(x, y),
@@ -94,6 +96,9 @@ proc alpha(obj: Image): int =
 proc `alpha=`(obj: Image, alpha: int) =
   discard obj.texture.setTextureAlphaMod(alpha.uint8)
 
+proc setColor* (renderer: sdl.Renderer, c: (float, float,float,float))=
+  current_color = c
+
 proc draw* (renderer: sdl.Renderer, obj: Image, x, y: float, rot = 0.0, flip = false, ox = -1, oy = -1): bool {.discardable.}=
   var dx = (x - camera.position.x) * camera.zoom
   var dy = (y - camera.position.y) * camera.zoom
@@ -139,10 +144,10 @@ proc rect*(renderer: sdl.Renderer, x, y, w, h: float, rot=0.0)=
     xx.int16, yy.int16,
     (xx + (w * camera.zoom)).int16,
     (yy + (h * camera.zoom)).int16,
-    255.uint8,
-    255.uint8,
-    255.uint8,
-    255.uint8
+    (current_color[0] * 255).uint8,
+    (current_color[1] * 255).uint8,
+    (current_color[2] * 255).uint8,
+    (current_color[3] * 255).uint8,
   )
   
 proc lineRect*(renderer: sdl.Renderer, x, y, w, h: float, rot=0.0)=
@@ -152,8 +157,8 @@ proc lineRect*(renderer: sdl.Renderer, x, y, w, h: float, rot=0.0)=
     xx.int16, yy.int16,
     (xx + (w * camera.zoom)).int16,
     (yy + (h * camera.zoom)).int16,
-    255.uint8,
-    255.uint8,
-    255.uint8,
-    255.uint8
+    (current_color[0] * 255).uint8,
+    (current_color[1] * 255).uint8,
+    (current_color[2] * 255).uint8,
+    (current_color[3] * 255).uint8,
   )

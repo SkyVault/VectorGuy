@@ -184,6 +184,7 @@ typedef N_CDECL_PTR(NCSTRING, tyProc_09bvyvHFtWbkzL5AHgf0bKw) (void);
 typedef N_CDECL_PTR(void*, tyProc_hKarI59cLAeI0v1WuQhCZ9ag) (NCSTRING title, int x, int y, int w, int h, NU32 flags);
 typedef N_CDECL_PTR(void*, tyProc_jPHHnsvDYo8Q3NQemQIGWg) (void* window, int index, NU32 flags);
 typedef N_CDECL_PTR(NU32, tyProc_ZBJ5GRli6YRWUmwPMxvXiw) (void);
+typedef NI32 tyEnum_Key_jK5vGfOANLpC8IBluSyM9ag;
 static N_NIMCALL(void, Marker_tyRef_cDIK9awGdJFmfxaNEVZuU2Q)(void* p, NI op);
 N_NIMCALL(void, nimGCvisit)(void* d, NI op);
 static N_NIMCALL(void, TM_4ZzOzMTa1TP2fFZm9baityw_3)(void);
@@ -203,8 +204,10 @@ N_LIB_PRIVATE N_NIMCALL(int, toCint_yAPwf7d9aO5za0vgIa7yl8g)(NI x);
 static N_INLINE(void, pluseq__7kHiltrvRlcg6wSYR3CxAw_2physics)(NF* x, NF y);
 static N_INLINE(NI, addInt)(NI a, NI b);
 N_NOINLINE(void, raiseOverflow)(void);
+N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, isKeyPressed_RhH8btHgNWFRXiAyNJ39c5Q_2)(tyEnum_Key_jK5vGfOANLpC8IBluSyM9ag key);
 void* window_0Vd6O6UB33uO8W4yEB9cNOg;
 void* renderer_Ll7o3xAsk26H2TKOmIioZg;
+NIM_BOOL Debugging_gnNtFD9amD0ZmDJMIoENZmg;
 tyEnum_GameState_64fRvvb0ysndoJH5vqkKMQ current_gamestate_A1FbtpnWNMFCyHDMM9bMpVg;
 tyObject_ClockcolonObjectType__i9caNiZ1Ae9aC9bMNXyaOIwqA* clock_XGJlevjwnAIKRRsiWSQCKQ;
 TNimType NTI_i9caNiZ1Ae9aC9bMNXyaOIwqA_;
@@ -317,9 +320,9 @@ N_LIB_PRIVATE N_NIMCALL(tyTuple_1v9bKyksXWMsm0vNwmZ4EuQ, windowSize_IiXrDDZnIvC9
 	memset((void*)(&result), 0, sizeof(tyTuple_1v9bKyksXWMsm0vNwmZ4EuQ));
 	x = (int)0;
 	y = (int)0;
-	nimln_(76, "platform.nim");
+	nimln_(83, "platform.nim");
 	Dl_116546_(window_0Vd6O6UB33uO8W4yEB9cNOg, (&x), (&y));
-	nimln_(77, "platform.nim");
+	nimln_(84, "platform.nim");
 	result.Field0 = ((NI) (x));
 	result.Field1 = ((NI) (y));
 	popFrame();
@@ -332,40 +335,40 @@ N_LIB_PRIVATE N_NIMCALL(tyEnum_Result_L1di3wLm5aRgv8oY7gfOcQ, init_dS5TN5j25WAQ6
 	int T9_;
 	nimfr_("init", "platform.nim");
 {	result = (tyEnum_Result_L1di3wLm5aRgv8oY7gfOcQ)0;
-	nimln_(43, "platform.nim");
+	nimln_(47, "platform.nim");
 	result = ((tyEnum_Result_L1di3wLm5aRgv8oY7gfOcQ) 0);
-	nimln_(44, "platform.nim");
+	nimln_(48, "platform.nim");
 	{
 		int T3_;
 		tyArray_Re75IspeoxXy2oCZHwcRrA T6_;
 		NCSTRING T7_;
 		nimln_(400, "system.nim");
-		nimln_(44, "platform.nim");
+		nimln_(48, "platform.nim");
 		T3_ = (int)0;
 		T3_ = Dl_111821_(((NU32) 29233));
 		if (!!((T3_ == ((NI32) 0)))) goto LA4_;
-		nimln_(45, "platform.nim");
+		nimln_(49, "platform.nim");
 		memset((void*)T6_, 0, sizeof(tyArray_Re75IspeoxXy2oCZHwcRrA));
 		T6_[0] = copyString(((NimStringDesc*) &TM_4ZzOzMTa1TP2fFZm9baityw_4));
 		T7_ = (NCSTRING)0;
 		T7_ = Dl_112926_();
 		T6_[1] = cstrToNimstr(T7_);
 		echoBinSafe(T6_, 2);
-		nimln_(46, "platform.nim");
+		nimln_(50, "platform.nim");
 		result = ((tyEnum_Result_L1di3wLm5aRgv8oY7gfOcQ) 1);
-		nimln_(47, "platform.nim");
+		nimln_(51, "platform.nim");
 		goto BeforeRet_;
 	}
 	LA4_: ;
-	nimln_(50, "platform.nim");
-	nimln_(53, "platform.nim");
+	nimln_(54, "platform.nim");
+	nimln_(57, "platform.nim");
 	T8_ = (int)0;
 	T8_ = toCint_yAPwf7d9aO5za0vgIa7yl8g(size.Field0);
-	nimln_(54, "platform.nim");
+	nimln_(58, "platform.nim");
 	T9_ = (int)0;
 	T9_ = toCint_yAPwf7d9aO5za0vgIa7yl8g(size.Field1);
 	window_0Vd6O6UB33uO8W4yEB9cNOg = Dl_116489_((title ? title->data : (NCSTRING)""), ((int) 536805376), ((int) 536805376), T8_, T9_, ((NU32) 0));
-	nimln_(58, "platform.nim");
+	nimln_(62, "platform.nim");
 	renderer_Ll7o3xAsk26H2TKOmIioZg = Dl_120115_(window_0Vd6O6UB33uO8W4yEB9cNOg, ((int) -1), ((NU32) 6));
 	}BeforeRet_: ;
 	popFrame();
@@ -376,7 +379,7 @@ N_LIB_PRIVATE N_NIMCALL(tyEnum_GameState_64fRvvb0ysndoJH5vqkKMQ, CurrentGameStat
 	tyEnum_GameState_64fRvvb0ysndoJH5vqkKMQ result;
 	nimfr_("CurrentGameState", "platform.nim");
 	result = (tyEnum_GameState_64fRvvb0ysndoJH5vqkKMQ)0;
-	nimln_(34, "platform.nim");
+	nimln_(38, "platform.nim");
 	result = current_gamestate_A1FbtpnWNMFCyHDMM9bMpVg;
 	popFrame();
 	return result;
@@ -384,7 +387,7 @@ N_LIB_PRIVATE N_NIMCALL(tyEnum_GameState_64fRvvb0ysndoJH5vqkKMQ, CurrentGameStat
 
 N_LIB_PRIVATE N_NIMCALL(void, Quit_Xu9cEU9adL5OoIv5EZ1pTttg)(void) {
 	nimfr_("Quit", "platform.nim");
-	nimln_(40, "platform.nim");
+	nimln_(44, "platform.nim");
 	current_gamestate_A1FbtpnWNMFCyHDMM9bMpVg = ((tyEnum_GameState_64fRvvb0ysndoJH5vqkKMQ) 2);
 	popFrame();
 }
@@ -423,17 +426,17 @@ N_LIB_PRIVATE N_NIMCALL(void, update_iNFkF8jCG9coHVqGuLSVINw)(void) {
 	NF T2_;
 	NI TM_4ZzOzMTa1TP2fFZm9baityw_5;
 	nimfr_("update", "platform.nim");
-	nimln_(64, "platform.nim");
+	nimln_(68, "platform.nim");
 	T1_ = (NU32)0;
 	T1_ = Dl_121033_();
 	now = ((NF) (T1_));
-	nimln_(65, "platform.nim");
-	dt = ((NF)(((NF)(now) - (NF)((*clock_XGJlevjwnAIKRRsiWSQCKQ).last))) / (NF)(1.0000000000000000e+03));
-	nimln_(66, "platform.nim");
-	(*clock_XGJlevjwnAIKRRsiWSQCKQ).last = now;
-	nimln_(68, "platform.nim");
-	(*clock_XGJlevjwnAIKRRsiWSQCKQ).dt = dt;
 	nimln_(69, "platform.nim");
+	dt = ((NF)(((NF)(now) - (NF)((*clock_XGJlevjwnAIKRRsiWSQCKQ).last))) / (NF)(1.0000000000000000e+03));
+	nimln_(70, "platform.nim");
+	(*clock_XGJlevjwnAIKRRsiWSQCKQ).last = now;
+	nimln_(72, "platform.nim");
+	(*clock_XGJlevjwnAIKRRsiWSQCKQ).dt = dt;
+	nimln_(73, "platform.nim");
 	T2_ = (NF)0;
 	{
 		if (!(dt == 0.0)) goto LA5_;
@@ -446,20 +449,32 @@ N_LIB_PRIVATE N_NIMCALL(void, update_iNFkF8jCG9coHVqGuLSVINw)(void) {
 	}
 	LA3_: ;
 	(*clock_XGJlevjwnAIKRRsiWSQCKQ).fps = ((NF)(1.0000000000000000e+00) / (NF)(T2_));
-	nimln_(71, "platform.nim");
+	nimln_(75, "platform.nim");
 	pluseq__7kHiltrvRlcg6wSYR3CxAw_2physics((&(*clock_XGJlevjwnAIKRRsiWSQCKQ).timer), dt);
-	nimln_(72, "platform.nim");
+	nimln_(76, "platform.nim");
 	TM_4ZzOzMTa1TP2fFZm9baityw_5 = addInt((*clock_XGJlevjwnAIKRRsiWSQCKQ).ticks, ((NI) 1));
 	(*clock_XGJlevjwnAIKRRsiWSQCKQ).ticks = (NI)(TM_4ZzOzMTa1TP2fFZm9baityw_5);
+	nimln_(78, "platform.nim");
+	{
+		NIM_BOOL T10_;
+		T10_ = (NIM_BOOL)0;
+		T10_ = isKeyPressed_RhH8btHgNWFRXiAyNJ39c5Q_2(((tyEnum_Key_jK5vGfOANLpC8IBluSyM9ag) 96));
+		if (!T10_) goto LA11_;
+		nimln_(79, "platform.nim");
+		Debugging_gnNtFD9amD0ZmDJMIoENZmg = !(Debugging_gnNtFD9amD0ZmDJMIoENZmg);
+	}
+	LA11_: ;
 	popFrame();
 }
 NIM_EXTERNC N_NOINLINE(void, VectorGuy_platformInit000)(void) {
 	tyObject_ClockcolonObjectType__i9caNiZ1Ae9aC9bMNXyaOIwqA* T1_;
 	nimfr_("platform", "platform.nim");
 nimRegisterGlobalMarker(TM_4ZzOzMTa1TP2fFZm9baityw_3);
-	nimln_(26, "platform.nim");
+	nimln_(10, "platform.nim");
+	Debugging_gnNtFD9amD0ZmDJMIoENZmg = NIM_FALSE;
+	nimln_(30, "platform.nim");
 	current_gamestate_A1FbtpnWNMFCyHDMM9bMpVg = ((tyEnum_GameState_64fRvvb0ysndoJH5vqkKMQ) 0);
-	nimln_(27, "platform.nim");
+	nimln_(31, "platform.nim");
 	T1_ = (tyObject_ClockcolonObjectType__i9caNiZ1Ae9aC9bMNXyaOIwqA*)0;
 	T1_ = (tyObject_ClockcolonObjectType__i9caNiZ1Ae9aC9bMNXyaOIwqA*) newObj((&NTI_cDIK9awGdJFmfxaNEVZuU2Q_), sizeof(tyObject_ClockcolonObjectType__i9caNiZ1Ae9aC9bMNXyaOIwqA));
 	(*T1_).dt = 0.0;

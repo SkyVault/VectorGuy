@@ -38,7 +38,7 @@ static N_INLINE(void, nimFrame)(TFrame* s);
 N_LIB_PRIVATE N_NOINLINE(void, stackOverflow_II46IjNZztN9bmbxUD8dt8g)(void);
 static N_INLINE(void, popFrame)(void);
 static void* TM_KBqytsBOSVgv4K9bnF5oGYQ_2;
-tyProc_1LIoIPgxf1fnU6YXXXDfCA Dl_186060_;
+tyProc_1LIoIPgxf1fnU6YXXXDfCA Dl_202060_;
 extern TFrame* framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw;
 STRING_LITERAL(TM_KBqytsBOSVgv4K9bnF5oGYQ_4, "libSDL2_image.so", 16);
 STRING_LITERAL(TM_KBqytsBOSVgv4K9bnF5oGYQ_6, "libSDL2_image.so.0.2.1", 22);
@@ -87,6 +87,6 @@ if (!((TM_KBqytsBOSVgv4K9bnF5oGYQ_2 = nimLoadLibrary(((NimStringDesc*) &TM_KBqyt
 ||(TM_KBqytsBOSVgv4K9bnF5oGYQ_2 = nimLoadLibrary(((NimStringDesc*) &TM_KBqytsBOSVgv4K9bnF5oGYQ_12)))
 ||(TM_KBqytsBOSVgv4K9bnF5oGYQ_2 = nimLoadLibrary(((NimStringDesc*) &TM_KBqytsBOSVgv4K9bnF5oGYQ_14)))
 )) nimLoadLibraryError(((NimStringDesc*) &TM_KBqytsBOSVgv4K9bnF5oGYQ_15));
-	Dl_186060_ = (tyProc_1LIoIPgxf1fnU6YXXXDfCA) nimGetProcAddr(TM_KBqytsBOSVgv4K9bnF5oGYQ_2, "IMG_LoadTexture");
+	Dl_202060_ = (tyProc_1LIoIPgxf1fnU6YXXXDfCA) nimGetProcAddr(TM_KBqytsBOSVgv4K9bnF5oGYQ_2, "IMG_LoadTexture");
 }
 

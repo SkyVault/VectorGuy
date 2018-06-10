@@ -755,7 +755,7 @@ static N_INLINE(NI, w_wHtgGFjxpGJyUmSjIkmLxgtiled)(tyObject_ImageObj_CILs0aI9a15
 	NI result;
 	nimfr_("w", "art.nim");
 {	result = (NI)0;
-	nimln_(46, "art.nim");
+	nimln_(48, "art.nim");
 	result = (*obj).w;
 	goto BeforeRet_;
 	}BeforeRet_: ;
@@ -767,7 +767,7 @@ static N_INLINE(NI, h_wHtgGFjxpGJyUmSjIkmLxg_2tiled)(tyObject_ImageObj_CILs0aI9a
 	NI result;
 	nimfr_("h", "art.nim");
 {	result = (NI)0;
-	nimln_(47, "art.nim");
+	nimln_(49, "art.nim");
 	result = (*obj).h;
 	goto BeforeRet_;
 	}BeforeRet_: ;

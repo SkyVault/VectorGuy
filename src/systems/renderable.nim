@@ -8,6 +8,8 @@ import
 type
   Drawable* = ref object of Component
     color*: (float, float, float, float)
+    offset*: V2
+    rotation*: float
 
   RectangleComponent* = ref object of Drawable
 
@@ -18,14 +20,17 @@ type
 
 proc newRectangleComponent* (): RectangleComponent=
   result = RectangleComponent(
-    color: (1.0, 0.0, 0.0, 1.0)
+    color: (1.0, 0.0, 0.0, 1.0),
+    rotation: 0.0
   )
 
 proc newSprite* (img: Image, reg: Region): Sprite=
   result = Sprite(
     image: img,
     region: reg,
-    flip: false
+    flip: false,
+    offset: Vec2(),
+    rotation: 0.0
   )
 
 #(renderer: sdl.Renderer, x, y, w, h: float, rot=0.0)=
@@ -54,5 +59,5 @@ var SpriteRendererSystem = EntityWorld.createSystem(
     let img = sprite.image
     let reg = sprite.region
   
-    R2D.draw(img, reg, body.x, body.y, 0.0, sprite.flip)
+    R2D.draw(img, reg, sprite.offset.x + body.x, sprite.offset.y +  body.y, sprite.rotation, sprite.flip)
   )

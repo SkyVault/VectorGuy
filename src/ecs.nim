@@ -85,7 +85,19 @@ proc newWorld* (): World=
 var world = newWorld()
 template EntityWorld* (): auto = world
 
+proc getAllThatMatch* (matchlist: seq[string]): seq[Entity]=
+  result = newSeq[Entity]()
+  for e in world.entities:
+    var good = true
+    for m in matchList:
+        if not e.has(m):
+          good = false
+    if good: result.add(e)
+
 proc update* (world: World)=
+    for system in world.systems:
+      system.preUpdate(system)
+
     let num = world.entities.len
     for i in countdown(num - 1, 0):
         let entity = world.entities[i]
@@ -143,4 +155,5 @@ proc createSystem* (
         preDraw
     )
 
+    result.worldRef = world
     world.systems.add result

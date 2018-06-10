@@ -9,6 +9,10 @@
 
 #include "nimbase.h"
 #include <time.h>
+#include <sys/select.h>
+#include <sys/types.h>
+#include <string.h>
+#include <sys/time.h>
 #undef LANGUAGE_C
 #undef MIPSEB
 #undef MIPSEL
@@ -51,6 +55,33 @@ static N_INLINE(void, nimFrame)(TFrame* s) {
 
 static N_INLINE(void, popFrame)(void) {
 	framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw = (*framePtr_HRfVMH3jYeBJz6Q6X9b6Ptw).prev;
+}
+
+N_LIB_PRIVATE N_NIMCALL(NF, ntcpuTime)(void) {
+	NF result;
+	NI T1_;
+	nimfr_("cpuTime", "times.nim");
+	result = (NF)0;
+	nimln_(1755, "times.nim");
+	T1_ = (NI)0;
+	T1_ = clock();
+	result = ((NF)(((double) (T1_))) / (NF)(((double) (CLOCKS_PER_SEC))));
+	popFrame();
+	return result;
+}
+
+N_LIB_PRIVATE N_NIMCALL(NF, ntepochTime)(void) {
+	NF result;
+	struct timeval a;
+	nimfr_("epochTime", "times.nim");
+	result = (NF)0;
+	memset((void*)(&a), 0, sizeof(struct timeval));
+	nimln_(1765, "times.nim");
+	gettimeofday((&a), NIM_NIL);
+	nimln_(1766, "times.nim");
+	result = ((NF)(((double) (((NI64) (a.tv_sec))))) + (NF)(((NF)(((double) (a.tv_usec))) * (NF)(9.9999999999999995e-07))));
+	popFrame();
+	return result;
 }
 NIM_EXTERNC N_NOINLINE(void, stdlib_timesInit000)(void) {
 	nimfr_("times", "times.nim");

@@ -3,6 +3,7 @@ import
   ../art,
   ../platform,
   ../body,
+  ../items,
   renderable,
   physics,
   ../input,
@@ -20,12 +21,15 @@ const SPEED = 300.0
 var PlayerController = EntityWorld.createSystem(
   @["Body", "Player", "PhysicsBody", "Sprite"],
   load = proc(sys: System, self: Entity)=
-    discard
+    let phys = self.get PhysicsBody
+    
+    phys.solidsCollisionCallback = proc(o: PhysicsObject)=
+      discard
   ,
-  update = proc(s: System, e: Entity)=
-    let body = e.get Body
-    let phys = e.get PhysicsBody
-    let sprite = e.get Sprite
+  update = proc(s: System, self: Entity)=
+    let body = self.get Body
+    let phys = self.get PhysicsBody
+    let sprite = self.get Sprite
 
     if isKeyDown(Key.LEFT):
       phys.velocity.x -= SPEED * GameClock.dt
@@ -58,4 +62,9 @@ var PlayerController = EntityWorld.createSystem(
     
     camera.position.x -= dx * 0.1
     camera.position.y -= dy * 0.1
+
+    # Handle collisions with other entities
+    for other in phys.collisions:
+      if other.has Item:
+        echo "item"
   )

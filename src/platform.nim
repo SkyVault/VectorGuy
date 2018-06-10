@@ -1,9 +1,13 @@
 import
-  sdl2/sdl
+  sdl2/sdl,
+  input
 
 var
   window: sdl.Window
   renderer: sdl.Renderer
+
+const IS_DEBUG* = true
+var Debugging* = false
 
 template R2D* (): auto = renderer
 template Win* (): auto = window
@@ -70,6 +74,9 @@ proc update* ()=
 
   clock.timer += dt
   clock.ticks += 1
+
+  if isKeyPressed(Key.BACKQUOTE):
+    Debugging = not Debugging
 
 proc windowSize* (): (int, int) =
   var x, y: cint

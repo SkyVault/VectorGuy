@@ -14,16 +14,18 @@ type
     Sensor,
     Ladder
 
+  PhysicsObject* = ref object of Body
+    physicsType*: PhysicsType
+
   PhysicsBody* = ref object of Component
     velocity*: V2
     friction*: float
     isOnGround*: bool
     isOnLadder*: bool
-    gravity_scale: float
-    physicsType: PhysicsType
-
-  PhysicsObject* = ref object of Body
-    physicsType: PhysicsType
+    gravity_scale*: float
+    physicsType*: PhysicsType
+    collisions*: seq[Entity]
+    solidsCollisionCallback*: proc(solid: PhysicsObject)
 
 const GRAVITY = (0.0, 600.0)
 
@@ -46,10 +48,14 @@ proc newPhysicsBody* (vx = 0.0, vy = 0.0): PhysicsBody=
     gravity_scale: 1.0,
     isOnGround: false,
     isOnLadder: false,
-    physicsType: PhysicsType.Dynamic
+    physicsType: PhysicsType.Dynamic,
+    collisions: newSeq[Entity](),
+    solidsCollisionCallback: proc(solid: PhysicsObject)= discard
   )
 
-var tiledObjects = newSeq[PhysicsObject]()
+var tiledObjects    = newSeq[PhysicsObject]()
+var physicsEntities = newSeq[Entity]()
+
 proc SetTiledObjects* (objs: seq[TiledObject])=
   for o in objs:
     tiledObjects.add(newPhysicsObject(
@@ -57,12 +63,33 @@ proc SetTiledObjects* (objs: seq[TiledObject])=
       o.typeName
     ))
 
+proc placeMeeting* (point: V2): PhysicsObject=
+  result = nil
+
+  for o in tiledObjects:
+    if o.contains(point): return o
+
 var PhysicsSystem = EntityWorld.createSystem(
   @["Body", "PhysicsBody"],
 
-  load = proc(sys: System, self: Entity)=
-    discard
-    #tiledObjects.setLen(0)
+  draw = proc(sys: System, self: Entity)=
+    if platform.Debugging == false: return
+
+    var body = self.get Body
+    var phys = self.get PhysicsBody
+
+    let color = if phys.collisions.len == 0:
+                  (0.0, 1.0, 0.0, 1.0)
+                else:
+                  (1.0, 0.0, 0.0, 1.0)
+
+    R2D.setColor(color)
+    R2D.lineRect(body.x, body.y, body.width, body.height)
+    R2D.setColor((1.0, 1.0, 1.0, 1.0))
+  ,
+
+  preUpdate = proc(sys: System)=
+    physicsEntities = getAllThatMatch @["PhysicsBody"]
   ,
 
   update = proc(sys: System, self: Entity)=
@@ -82,10 +109,13 @@ var PhysicsSystem = EntityWorld.createSystem(
     phys.isOnLadder = false
 
     for o in tiledObjects:
+      var collided = false
       if o.contains(xbody) and o.physicsType != PhysicsType.Ladder:
+        collided = true
         xbody = body
       
       if o.contains(ybody):
+        collided = true
         phys.isOnGround = true
         phys.velocity.y = 0
 
@@ -93,12 +123,20 @@ var PhysicsSystem = EntityWorld.createSystem(
           phys.isOnLadder = true
         else:
           ybody.y = o.y - ybody.height
+      
+      if collided:
+        phys.solidsCollisionCallback(o)
 
+    phys.collisions.setLen(0)
+    for e in physicsEntities:
+      if e == self: continue
+      let ebod = e.get Body
+      if ebod.contains(body):
+        phys.collisions.add(e)
 
     phys.velocity *= math.pow(phys.friction, GameClock.dt)
 
     body.position = Vec2(xbody.x, ybody.y)
-  
   ,
   preDraw = proc(s: System)=
     for o in tiledObjects:
