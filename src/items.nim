@@ -31,13 +31,6 @@ var ItemSystem = EntityWorld.createSystem(
     sprite.rotation = math.cos(GameClock.timer * speed * 0.25) * 10
 )
 
-proc createSword1* (x, y: float): Entity {.discardable.}=
-  result = EntityWorld.createEntity()
-  result.add(newBody(x, y, 22, 5))
-  result.add(newPhysicsBody())
-  result.add(newSprite(assets.get(Image, "items"), newRegion(0, 0, 22, 5)))
-  result.add(Item())
-
 let ItemTable* = {
   "Sword_1": 1
 }.toTable

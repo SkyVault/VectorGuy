@@ -11,9 +11,12 @@ import
 
 type
   Player* = ref object of Component
+    invatory*: seq[Item]
 
 proc newPlayer* (): Player=
-  result = Player()
+  result = Player(
+    invatory: newSeq[Item]()
+  )
 
 const SPEED = 300.0
 
@@ -30,6 +33,7 @@ var PlayerController = EntityWorld.createSystem(
     let body = self.get Body
     let phys = self.get PhysicsBody
     let sprite = self.get Sprite
+    let player = self.get Player
 
     if isKeyDown(Key.LEFT):
       phys.velocity.x -= SPEED * GameClock.dt
@@ -66,5 +70,6 @@ var PlayerController = EntityWorld.createSystem(
     # Handle collisions with other entities
     for other in phys.collisions:
       if other.has Item:
-        echo "item"
+        player.invatory.add(other.get(Item))
+        other.kill()
   )

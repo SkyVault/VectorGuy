@@ -56,7 +56,7 @@ proc init* (size: (int, int), title: string): Result=
     sdl.WindowPosUndefined,
     size[0],
     size[1],
-    0)
+    sdl.WINDOW_BORDERLESS or sdl.WINDOW_SHOWN or sdl.WINDOW_ALLOW_HIGHDPI or sdl.WINDOW_ALWAYS_ON_TOP)
 
   renderer = sdl.createRenderer(
     window,

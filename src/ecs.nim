@@ -26,6 +26,9 @@ type
         entities: seq[Entity]
         systems: seq[System]
 
+proc kill* (self: Entity)=
+    self.remove = true
+
 proc default_load         (s: System, e: Entity) = discard
 proc default_preUpdate    (s: System)            = discard
 proc default_update       (s: System, e: Entity) = discard

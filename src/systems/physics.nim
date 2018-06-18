@@ -89,7 +89,7 @@ var PhysicsSystem = EntityWorld.createSystem(
   ,
 
   preUpdate = proc(sys: System)=
-    physicsEntities = getAllThatMatch @["PhysicsBody"]
+    physicsEntities = getAllThatMatch(@["PhysicsBody"])
   ,
 
   update = proc(sys: System, self: Entity)=

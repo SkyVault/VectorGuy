@@ -16,7 +16,8 @@ import
   systems/renderable,
   scenery,
   assets,
-  platform
+  platform,
+  entity_assembler
 
 if platform.init((1280, 720), "Hello World") == Failure:
   discard
@@ -34,20 +35,9 @@ assets.add(R2D.loadImage "assets/images/items.png", "items")
 
 let map = loadTiledMap "assets/maps/map_1.tmx"
 
-let player_ent = EntityWorld.createEntity()
-player_ent.add(newBody(100, 0, 10, 25))
-player_ent.add(newPhysicsBody())
-player_ent.add(newSprite(assets.get(Image, "player"), newRegion(0, 0, 10, 25)))
-player_ent.add(Player())
-
-let walker = EntityWorld.createEntity()
-walker.add(newBody(200 - 48, 0, 26, 21))
-walker.add(newPhysicsBody())
-walker.add(newSprite(assets.get(Image, "walker_enemy"), newRegion(0, 0, 26, 21)))
-walker.add(newEnemy(EnemyType.Walker))
-
-# createSword1(200 - 48, 256)
-createSword1(200, 0)
+makeEntity("Player", 100, 0)
+makeEntity("Walker", 200 - 48, 0)
+makeEntity("Sword", 200, 0)
 
 SetTiledObjects(map.objects)
 
