@@ -26,11 +26,14 @@ proc newEnemy* (enemyType: EnemyType): Enemy=
 proc WalkerUpdate(self: Entity)=
   let body = self.get Body
   let phys = self.get PhysicsBody
+  let sprite = self.get Sprite
   let o = placeMeeting(Vec2(body.x - 4, body.y + body.height / 2.0))
   let o2 = placeMeeting(Vec2(body.x + body.width + 4, body.y + body.height / 2.0))
   
   if o != nil or o2 != nil:
     phys.velocity.x *= -1
+
+  sprite.flip = if phys.velocity.x < 0: false else: true
 
 proc WalkerPhysicsObject(self: Entity, obj: PhysicsObject)=
   discard

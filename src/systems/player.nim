@@ -11,11 +11,11 @@ import
 
 type
   Player* = ref object of Component
-    invatory*: seq[Item]
+    invatory*: seq[Entity]
 
 proc newPlayer* (): Player=
   result = Player(
-    invatory: newSeq[Item]()
+    invatory: newSeq[Entity]()
   )
 
 const SPEED = 300.0
@@ -70,6 +70,6 @@ var PlayerController = EntityWorld.createSystem(
     # Handle collisions with other entities
     for other in phys.collisions:
       if other.has Item:
-        player.invatory.add(other.get(Item))
+        player.invatory.add(other)
         other.kill()
   )

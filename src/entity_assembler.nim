@@ -30,7 +30,7 @@ const Entities = {
         result.add(newBody(x, y, 22, 5))
         result.add(newPhysicsBody())
         result.add(newSprite(assets.get(Image, "items"), newRegion(0, 0, 22, 5)))
-        result.add(Item())
+        result.add(Item()),
 
 }.toTable
 
